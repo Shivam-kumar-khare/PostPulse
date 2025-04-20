@@ -1,0 +1,27 @@
+# Handle all text files automatically and normalize line endings
+* text=auto
+
+# Ensure LF endings in the repo, CRLF can be used locally on Windows
+*.js     text eol=lf
+*.jsx    text eol=lf
+*.ts     text eol=lf
+*.tsx    text eol=lf
+*.json   text eol=lf
+*.html   text eol=lf
+*.css    text eol=lf
+*.md     text eol=lf
+*.env    text eol=lf
+*.gitignore text eol=lf
+
+# Binary files - do not convert line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+
+# Optional: lock Vite logo or other assets
+public/vite.svg binary
