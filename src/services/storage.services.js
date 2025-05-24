@@ -41,7 +41,7 @@ export class DataBasesServices {
     }
 
 
-
+//slug==post_id
     async updatePost(slug, { title, content, featuredImage, status }) {
         try {
             return await this.database.updateDocument(
@@ -150,5 +150,5 @@ export class DataBasesServices {
     }
 }
 
-const datbaseServices=new DataBasesServices();
-export default datbaseServices;
+const databaseServices=new DataBasesServices();
+export default databaseServices;
