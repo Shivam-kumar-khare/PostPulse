@@ -48,12 +48,15 @@ function Postform({ post }) {
             if (file) {
                 const fileid = file.$id;
                 data.featuredImage = fileid
+                // console.log("data\n",data,"\nuser data=",userData)
                 const dbpost = await dbServices.createPost({
                     ...data,
                     userId: userData.$id,
 
                 })
+             
                 if (dbpost) {
+                     console.log("\n\n\n\n\n\n\npost created successfully \npost=\t",post);
                     navigate(`/post/${dbpost.$id}`)
                 }
             }
@@ -89,7 +92,8 @@ function Postform({ post }) {
     return (
         <form onSubmit={handleSubmit(submit)} className='flex flex-wrap' >
             {/*LEFT PORTION*/}
-            <div className=' w-2/3 px-2'>
+            <div className='w-full m-3 flex flex-wrap justify-center'>
+            <div className='order-1  w-full sm:w-2/3 px-2'>
                 <Input
                     label="Title:  "
                     placeholder="Title"
@@ -120,7 +124,7 @@ function Postform({ post }) {
 
             </div>
             {/*RIGHT PORTION*/}
-            <div className='w-1/3 px-2'>
+            <div className='order-2 w-full sm:w-1/3 px-2 '>
                 <Input
                     label="Featured Image :"
                     type="file"
@@ -131,7 +135,7 @@ function Postform({ post }) {
                 {post && (
                     <div className="w-full mb-4">
                         <img
-                            src={dbServices.getFilePreview(post.featuredImage)}
+                            src={dbServices.getFileView(post.featuredImage)}
                             alt={post.title}
                             className="rounded-lg"
                         />
@@ -148,6 +152,7 @@ function Postform({ post }) {
                 >
                     {post ? "Update" : "Submit"}
                 </CustomBtn>
+            </div>
             </div>
         </form>
     )
