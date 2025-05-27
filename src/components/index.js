@@ -1,9 +1,9 @@
 import Container from "./container/Container.jsx";
-import Fotter from "./fotter/Fotter.jsx";
+import Footer from "./footer/Footer.jsx";
 import Header from "./Header/Header.jsx";
 import LogoutBtn from "./Header/LogoutBtn.jsx";
 import Postform from "./Postform/Postform.jsx";
-import Protected from "./AuthLayout.jsx";
+import AuthLayout from "./AuthLayout.jsx";
 import CustomBtn from "./CustomBtn.jsx";
 import Input from "./Input.jsx";
 import Login from "./Login.jsx";
@@ -16,11 +16,11 @@ import Signup from "./Signup.jsx";
 
 export {
     Container,
-    Fotter,
+    Footer,
     Header,
     LogoutBtn,
     Postform,
-    Protected,
+    AuthLayout,
     CustomBtn,
     Input,
     Login,
