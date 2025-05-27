@@ -18,7 +18,7 @@ export class DataBasesServices {
 
 
 
-    async createPost({ title, slug, content, featuredImage, status, userId }) {
+    async createPost({ title, slug, content, featuredImage, status, userId, ...rest }) {
         try {
             return await this.database.createDocument(
                 conf.DATABASE_ID,
@@ -35,13 +35,13 @@ export class DataBasesServices {
             )
 
         } catch (error) {
-            throw Error("create post failed::", error);
+            throw Error("create post failed::", error.message);
 
         }
     }
 
 
-//slug==post_id
+    //slug==post_id
     async updatePost(slug, { title, content, featuredImage, status }) {
         try {
             return await this.database.updateDocument(
@@ -108,7 +108,7 @@ export class DataBasesServices {
             throw Error("List document failed::", error);
             return false;
         }
-        
+
 
     }
 
@@ -144,9 +144,15 @@ export class DataBasesServices {
             return false
         }
     }
-    getFilePreview(fileId){
-        return this.bucket.getFilePreview(conf.BUCKET_ID,fileId);
+    getFilePreview(fileId) {
+        if (!fileId) throw Error("File Id Not Found in get file preview");
+        return this.bucket.getFilePreview(conf.BUCKET_ID, fileId);
 
+    }
+    getFileView(fileId){
+        if(!fileId) throw Error("File Id Not Found in get file view");
+        console.log("fileId==",fileId)
+        return this.bucket.getFileView(conf.BUCKET_ID,fileId)
     }
 }
 
