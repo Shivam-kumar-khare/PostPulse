@@ -4,7 +4,8 @@ import { CustomBtn, Input, Logo } from "./index.js";
 import authService from '../services/auth.services.js';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 function Login() {
@@ -36,7 +37,7 @@ function Login() {
 
     return (
         <div
-            className='flex items-center justify-center w-full'
+            className='flex items-center justify-center w-full mt-8 mb-8'
         >
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">

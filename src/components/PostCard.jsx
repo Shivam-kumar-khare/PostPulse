@@ -7,17 +7,21 @@ function PostCard({
   title,
   featuredImage
 }) {
+  const image = databaseServices.getFileView(featuredImage);
+  console.log("image recived==", image);
   return (
+
     <Link to={`/post/${$id}`}>
       <div className='w-full bg-gray-100 rounded-xl p-4'>
         <div className='w-full flex justify-center mb-4'>
           <img
-            src={databaseServices.getFilePreview(featuredImage)}
+            loading='lazy'
+            src={image}
             alt={title}
-            className='rounded-xl'
+            className='h-48 w-full object-contain rounded-xl'
           />
         </div>
-        <h2 className='text-xl font-bold'>{title}</h2>
+        <h2 className='text-xl text-center font-bold'>{title}</h2>
       </div>
     </Link>
   );

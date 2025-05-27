@@ -1,8 +1,11 @@
 import React from 'react'
+
 import { Editor } from '@tinymce/tinymce-react'
 import { Controller } from 'react-hook-form'
 
 function RTE({ name, control, label, defaultValue = "" }) {
+    const apiKey=import.meta.env.VITE_TINYMCE_API_KEY;
+    // console.log("apikeyfor rte=",apiKey)
     return (
         <div className='w-full '>
             {
@@ -14,6 +17,7 @@ function RTE({ name, control, label, defaultValue = "" }) {
                 control={control}
                 render={({ field: { onChange } }) => (
                     <Editor
+                        apiKey={apiKey}
                         initialValue={defaultValue}
                         init={{
                             initialValue: defaultValue,
