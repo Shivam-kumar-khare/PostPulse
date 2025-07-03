@@ -151,7 +151,7 @@ export class DataBasesServices {
     }
     getFileView(fileId){
         if(!fileId) throw Error("File Id Not Found in get file view");
-        console.log("fileId==",fileId)
+        // console.log("fileId==",fileId)
         return this.bucket.getFileView(conf.BUCKET_ID,fileId)
     }
 }

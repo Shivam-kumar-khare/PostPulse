@@ -34,6 +34,7 @@ function Home({isAuthenticatedUser}) {
         return (
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
+                    <h1 className="text-3xl font-semibold text-gray-500">Welcome</h1>
                     <h1 className="text-3xl font-semibold text-gray-500">Login to read Post...</h1>
                 </Container>
             </div>

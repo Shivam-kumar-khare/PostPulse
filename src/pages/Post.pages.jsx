@@ -8,13 +8,13 @@ import { useSelector } from "react-redux";
 export default function Post() {
     const [post, setPost] = useState(null);
     const { slug } = useParams();
-    console.log("slug found ?in post.pages.jsx==", slug)
+    // console.log("slug found ?in post.pages.jsx==", slug)
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
-    console.log("isAuthur==", isAuthor);
+    // console.log("isAuthur==", isAuthor);
 
     useEffect(() => {
         if (slug) {

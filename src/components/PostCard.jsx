@@ -8,7 +8,7 @@ function PostCard({
   featuredImage
 }) {
   const image = databaseServices.getFileView(featuredImage);
-  console.log("image recived==", image);
+  // console.log("image recived==", image);
   return (
 
     <Link to={`/post/${$id}`}>

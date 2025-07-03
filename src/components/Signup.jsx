@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import authService from '../services/auth.services.js';
 import { login as AuthLogin } from '../redux/authSlice.js';
 import { CustomBtn, Input, Logo } from './index.js';
@@ -18,7 +18,9 @@ function Signup() {
             const userData = await authService.createAccount(data);
             if (userData) {
                 const accountData = await authService.getAccount();
-                dispatch(AuthLogin(accountData));
+
+                // console.log("Account data on signup ==\n",accountData)
+                dispatch(AuthLogin({ userData: accountData }));
                 navigate('/');
             }
         } catch (e) {
